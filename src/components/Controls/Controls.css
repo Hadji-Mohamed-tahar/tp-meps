@@ -1,0 +1,134 @@
+/* ===================================
+   Controls.css - مكون التحكم بالإدخال
+   =================================== */
+
+.controls-container {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+              0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding: 24px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.controls-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.controls-input-wrapper {
+  margin-bottom: 20px;
+}
+
+.controls-input {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 1.125rem;
+  border: 2px solid #d1d5db;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  text-align: center;
+  direction: ltr;
+}
+
+.controls-input:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.controls-input:hover {
+  border-color: #9ca3af;
+}
+
+/* رسالة الخطأ */
+.controls-error {
+  color: #dc2626;
+  font-size: 0.875rem;
+  margin-top: 8px;
+  padding: 8px 12px;
+  background-color: #fee2e2;
+  border-radius: 4px;
+  border-right: 3px solid #dc2626;
+  animation: shake 0.3s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* مجموعة الأزرار */
+.controls-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.controls-btn {
+  flex: 1;
+  max-width: 150px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.controls-btn-back {
+  background-color: #e5e7eb;
+  color: #374151;
+}
+
+.controls-btn-back:hover {
+  background-color: #d1d5db;
+  transform: translateY(-1px);
+}
+
+.controls-btn-next {
+  background-color: #6366f1;
+  color: white;
+}
+
+.controls-btn-next:hover {
+  background-color: #4f46e5;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.controls-btn:active {
+  transform: translateY(0);
+}
+
+.controls-btn:focus {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+}
+
+/* تحسينات للشاشات الصغيرة */
+@media (max-width: 640px) {
+  .controls-container {
+    padding: 16px;
+  }
+  
+  .controls-title {
+    font-size: 1.25rem;
+  }
+  
+  .controls-buttons {
+    flex-direction: column;
+  }
+  
+  .controls-btn {
+    max-width: 100%;
+  }
+}

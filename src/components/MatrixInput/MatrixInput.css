@@ -1,0 +1,220 @@
+/* ===================================
+   MatrixInput.css - مكون إدخال المصفوفة
+   =================================== */
+
+.matrix-input-container {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+              0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding: 24px;
+}
+
+.matrix-input-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.matrix-input-description {
+  color: #6b7280;
+  font-size: 0.875rem;
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 8px;
+  background-color: #f9fafb;
+  border-radius: 4px;
+}
+
+/* حاوية المصفوفة */
+.matrix-wrapper {
+  overflow-x: auto;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #f9fafb;
+  border-radius: 8px;
+}
+
+.matrix-grid {
+  display: inline-block;
+  min-width: 100%;
+}
+
+.matrix-row {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 6px;
+  justify-content: center;
+}
+
+.matrix-row:last-child {
+  margin-bottom: 0;
+}
+
+/* خلايا المصفوفة */
+.matrix-cell-input {
+  width: 70px;
+  height: 50px;
+  padding: 8px;
+  font-size: 1rem;
+  text-align: center;
+  border: 2px solid #d1d5db;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  background-color: white;
+  direction: ltr;
+}
+
+.matrix-cell-input:hover {
+  border-color: #9ca3af;
+  background-color: #f9fafb;
+}
+
+.matrix-cell-input:focus {
+  outline: none;
+  border-color: #6366f1;
+  background-color: #fef3c7;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+/* تسميات الصفوف والأعمدة */
+.matrix-label {
+  font-weight: 600;
+  color: #4b5563;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+}
+
+/* رسالة الخطأ */
+.matrix-error {
+  color: #dc2626;
+  font-size: 0.875rem;
+  margin-top: 12px;
+  padding: 10px 16px;
+  background-color: #fee2e2;
+  border-radius: 6px;
+  border-right: 4px solid #dc2626;
+  text-align: center;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* معلومات إضافية */
+.matrix-info-box {
+  background-color: #dbeafe;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.matrix-info-text {
+  color: #1e40af;
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+/* مجموعة الأزرار */
+.matrix-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.matrix-btn {
+  flex: 1;
+  max-width: 150px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.matrix-btn-back {
+  background-color: #e5e7eb;
+  color: #374151;
+}
+
+.matrix-btn-back:hover {
+  background-color: #d1d5db;
+  transform: translateY(-1px);
+}
+
+.matrix-btn-next {
+  background-color: #6366f1;
+  color: white;
+}
+
+.matrix-btn-next:hover {
+  background-color: #4f46e5;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.matrix-btn:active {
+  transform: translateY(0);
+}
+
+.matrix-btn:focus {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+}
+
+/* تحسينات للشاشات الصغيرة */
+@media (max-width: 640px) {
+  .matrix-input-container {
+    padding: 16px;
+  }
+  
+  .matrix-input-title {
+    font-size: 1.25rem;
+  }
+  
+  .matrix-cell-input {
+    width: 60px;
+    height: 45px;
+    font-size: 0.875rem;
+  }
+  
+  .matrix-buttons {
+    flex-direction: column;
+  }
+  
+  .matrix-btn {
+    max-width: 100%;
+  }
+}
+
+/* تحسينات للمصفوفات الكبيرة */
+@media (max-width: 480px) {
+  .matrix-cell-input {
+    width: 50px;
+    height: 40px;
+    font-size: 0.75rem;
+    padding: 4px;
+  }
+  
+  .matrix-row {
+    gap: 4px;
+    margin-bottom: 4px;
+  }
+}

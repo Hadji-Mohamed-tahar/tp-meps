@@ -1,0 +1,507 @@
+/* ===================================
+   App.css - ملف التنسيقات الرئيسي
+   محاكي سلسلة ماركوف
+   =================================== */
+
+/* ===================================
+   إعدادات عامة
+   =================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, #eff6ff 0%, #e0e7ff 100%);
+  min-height: 100vh;
+}
+
+/* ===================================
+   الحاوية الرئيسية للتطبيق
+   =================================== */
+.app {
+  min-height: 100vh;
+  padding: 24px;
+  direction: rtl;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ===================================
+   قسم الترويسة
+   =================================== */
+.header-container {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 
+              0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  padding: 32px;
+  margin-bottom: 32px;
+  text-align: center;
+  animation: fadeInDown 0.6s ease;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.app-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+
+.app-description {
+  color: #4b5563;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  max-width: 800px;
+  margin: 0 auto 20px;
+}
+
+.equation {
+  display: inline-block;
+  background-color: #f3f4f6;
+  padding: 6px 12px;
+  border-radius: 6px;
+  color: #1f2937;
+  font-weight: 600;
+  margin: 0 4px;
+  font-family: 'Courier New', monospace;
+  border: 1px solid #e5e7eb;
+}
+
+.header-divider {
+  border: none;
+  height: 3px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    #6366f1, 
+    #8b5cf6, 
+    transparent
+  );
+  margin-top: 24px;
+  border-radius: 2px;
+}
+
+/* ===================================
+   مؤشر الخطوات
+   =================================== */
+.steps-indicator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding: 16px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.step-dot {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  border: 2px solid #e5e7eb;
+  background-color: white;
+  color: #9ca3af;
+}
+
+.step-dot.active {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: white;
+  border-color: #6366f1;
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.step-dot.completed {
+  background-color: #10b981;
+  color: white;
+  border-color: #10b981;
+}
+
+.step-connector {
+  width: 40px;
+  height: 3px;
+  background-color: #e5e7eb;
+  transition: background-color 0.3s ease;
+}
+
+.step-connector.completed {
+  background: linear-gradient(90deg, #10b981, #6366f1);
+}
+
+/* ===================================
+   حاوية المحتوى الرئيسي
+   =================================== */
+.content-wrapper {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+              0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding: 32px;
+  animation: fadeInUp 0.5s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===================================
+   شريط التقدم
+   =================================== */
+.progress-bar-container {
+  width: 100%;
+  height: 8px;
+  background-color: #e5e7eb;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6);
+  border-radius: 4px;
+  transition: width 0.5s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-bar-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* ===================================
+   بطاقة معلومات
+   =================================== */
+.info-card {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  border-right: 4px solid #f59e0b;
+  padding: 16px 20px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+}
+
+.info-card-title {
+  font-weight: bold;
+  color: #92400e;
+  font-size: 1rem;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.info-card-text {
+  color: #78350f;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+/* ===================================
+   تذييل التطبيق
+   =================================== */
+.app-footer {
+  text-align: center;
+  margin-top: 32px;
+  padding: 20px;
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.footer-link {
+  color: #6366f1;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: #4f46e5;
+  text-decoration: underline;
+}
+
+/* ===================================
+   أنيميشن التحميل
+   =================================== */
+.loading-spinner {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e5e7eb;
+  border-top-color: #6366f1;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 40px;
+}
+
+.loading-text {
+  color: #6b7280;
+  font-size: 1rem;
+}
+
+/* ===================================
+   رسالة نجاح
+   =================================== */
+.success-message {
+  background-color: #d1fae5;
+  border-right: 4px solid #10b981;
+  padding: 16px 20px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  animation: slideInRight 0.5s ease;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.success-icon {
+  width: 24px;
+  height: 24px;
+  color: #059669;
+  flex-shrink: 0;
+}
+
+.success-text {
+  color: #065f46;
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+/* ===================================
+   رسالة تحذير
+   =================================== */
+.warning-message {
+  background-color: #fef3c7;
+  border-right: 4px solid #f59e0b;
+  padding: 16px 20px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.warning-icon {
+  width: 24px;
+  height: 24px;
+  color: #d97706;
+  flex-shrink: 0;
+}
+
+.warning-text {
+  color: #92400e;
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+/* ===================================
+   تحسينات الاستجابة للشاشات
+   =================================== */
+@media (max-width: 768px) {
+  .app {
+    padding: 16px;
+  }
+  
+  .header-container {
+    padding: 24px 20px;
+  }
+  
+  .app-title {
+    font-size: 2rem;
+  }
+  
+  .app-description {
+    font-size: 1rem;
+  }
+  
+  .content-wrapper {
+    padding: 24px 20px;
+  }
+  
+  .steps-indicator {
+    padding: 12px;
+    gap: 8px;
+  }
+  
+  .step-dot {
+    width: 32px;
+    height: 32px;
+    font-size: 0.875rem;
+  }
+  
+  .step-connector {
+    width: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .app {
+    padding: 12px;
+  }
+  
+  .header-container {
+    padding: 20px 16px;
+    margin-bottom: 20px;
+  }
+  
+  .app-title {
+    font-size: 1.5rem;
+  }
+  
+  .app-description {
+    font-size: 0.875rem;
+  }
+  
+  .content-wrapper {
+    padding: 20px 16px;
+  }
+  
+  .equation {
+    display: block;
+    margin: 8px 0;
+  }
+}
+
+/* ===================================
+   تحسينات إمكانية الوصول
+   =================================== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ===================================
+   الوضع الداكن (اختياري)
+   =================================== */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  }
+  
+  .header-container,
+  .content-wrapper {
+    background-color: #1e293b;
+    color: #f1f5f9;
+  }
+  
+  .app-description {
+    color: #cbd5e1;
+  }
+  
+  .equation {
+    background-color: #334155;
+    color: #f1f5f9;
+    border-color: #475569;
+  }
+}
+
+/* ===================================
+   تنسيقات الطباعة
+   =================================== */
+@media print {
+  body {
+    background: white;
+  }
+  
+  .app {
+    padding: 0;
+  }
+  
+  .header-container {
+    box-shadow: none;
+    border: 1px solid #e5e7eb;
+  }
+  
+  .steps-indicator,
+  .progress-bar-container,
+  button {
+    display: none;
+  }
+  
+  .content-wrapper {
+    box-shadow: none;
+    border: 1px solid #e5e7eb;
+  }
+}

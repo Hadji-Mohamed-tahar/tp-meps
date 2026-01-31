@@ -1,0 +1,262 @@
+/* ===================================
+   VectorInput.css - مكون إدخال المتجه
+   =================================== */
+
+.vector-input-container {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+              0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding: 24px;
+}
+
+.vector-input-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.vector-input-description {
+  color: #6b7280;
+  font-size: 0.875rem;
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 8px;
+  background-color: #f9fafb;
+  border-radius: 4px;
+}
+
+/* شبكة المتجه */
+.vector-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 640px) {
+  .vector-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .vector-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* عنصر المتجه */
+.vector-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.vector-label {
+  font-weight: 600;
+  color: #4b5563;
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+.vector-input {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 1rem;
+  text-align: center;
+  border: 2px solid #d1d5db;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  background-color: white;
+  direction: ltr;
+}
+
+.vector-input:hover {
+  border-color: #9ca3af;
+  background-color: #f9fafb;
+}
+
+.vector-input:focus {
+  outline: none;
+  border-color: #6366f1;
+  background-color: #fef3c7;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+/* صندوق معلومات المجموع */
+.vector-sum-box {
+  background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  border: 2px solid #93c5fd;
+}
+
+.vector-sum-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.vector-sum-label {
+  color: #1e40af;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.vector-sum-value {
+  color: #1e3a8a;
+  font-weight: bold;
+  font-size: 1.25rem;
+  font-family: 'Courier New', monospace;
+}
+
+.vector-sum-valid {
+  color: #059669;
+}
+
+.vector-sum-invalid {
+  color: #dc2626;
+}
+
+/* رسالة الخطأ */
+.vector-error {
+  color: #dc2626;
+  font-size: 0.875rem;
+  margin-top: 12px;
+  padding: 10px 16px;
+  background-color: #fee2e2;
+  border-radius: 6px;
+  border-right: 4px solid #dc2626;
+  text-align: center;
+  animation: bounce 0.5s ease;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-8px); }
+  50% { transform: translateX(4px); }
+  75% { transform: translateX(-4px); }
+}
+
+/* مؤشر التقدم */
+.vector-progress-bar {
+  height: 6px;
+  background-color: #e5e7eb;
+  border-radius: 3px;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.vector-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+/* مجموعة الأزرار */
+.vector-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.vector-btn {
+  flex: 1;
+  max-width: 150px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.vector-btn-back {
+  background-color: #e5e7eb;
+  color: #374151;
+}
+
+.vector-btn-back:hover {
+  background-color: #d1d5db;
+  transform: translateY(-1px);
+}
+
+.vector-btn-next {
+  background-color: #6366f1;
+  color: white;
+}
+
+.vector-btn-next:hover {
+  background-color: #4f46e5;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.vector-btn:active {
+  transform: translateY(0);
+}
+
+.vector-btn:focus {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+}
+
+.vector-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* نصائح مساعدة */
+.vector-hint {
+  background-color: #fef3c7;
+  border-right: 3px solid #f59e0b;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  font-size: 0.875rem;
+  color: #92400e;
+}
+
+.vector-hint-icon {
+  display: inline-block;
+  margin-left: 8px;
+  font-weight: bold;
+}
+
+/* تحسينات للشاشات الصغيرة */
+@media (max-width: 640px) {
+  .vector-input-container {
+    padding: 16px;
+  }
+  
+  .vector-input-title {
+    font-size: 1.25rem;
+  }
+  
+  .vector-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  
+  .vector-buttons {
+    flex-direction: column;
+  }
+  
+  .vector-btn {
+    max-width: 100%;
+  }
+  
+  .vector-sum-content {
+    flex-direction: column;
+    text-align: center;
+  }
+}
